@@ -1,6 +1,3 @@
-from cmath import pi
-from itertools import cycle
-from re import I
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -49,11 +46,11 @@ for cycle in range(cycles):
     # Guardar el mejor puntaje local y global, y el mejor cromosoma global
     bestFt = Ft.max()
     bestFts[cycle] = bestFt
-
+    # print(f'Best Ft {bestFt} y cromosoma {Y[np.argmax(Ft)]} en iteración {cycle}')
     if bestFt > bestFtglobal:
         print(f'Y=\n{Y}')
         bestFtglobal = bestFt  # Guardando el mejor puntaje
-        bestYglobal = Y[np.argmax(Ft)]
+        bestYglobal = Y[np.argmax(Ft)].copy()
         print(f'Mejor puntaje en iteración {cycle}: {bestFtglobal}')
         print(f'Mejor cromosoma en iteración {cycle}: {bestYglobal}')
 
