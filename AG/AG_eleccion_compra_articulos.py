@@ -37,7 +37,7 @@ for i in range(N):
     c.append(ci)
 '''
 Z = 5
-Y = np.random.randint(0, 2, (Z,N))
+Y = np.random.randint(0, 2, (Z,N)) # Tamaño ZxN
 '''
 Y = np.array([
     [0, 1, 1, 0, 1],
@@ -47,16 +47,24 @@ Y = np.array([
 ])
 '''
 # Y = np.array([13, 24, 8, 19]) # De la profe
-R = X - np.dot(Y,c)
-Ft = np.where(R>0, np.dot(Y,b), 0)
-Ft = np.square(Y)
+R = X - np.dot(Y,c) # Tamaño (5,)
+Ft = np.where(R>0, np.dot(Y,b), 0) # Tamaño 
+#Ft = np.square(Y)
 Ftsum = np.sum(Ft)
 pselect = Ft/Ftsum
 Ftmean = pselect.mean()
 score = pselect/Ftmean
-
 Pint = np.zeros((Z,N))
-print(f'Pint={Pint}')
+
+print(f'Y=\n{Y}')
+print(f'c=\n{c}')
+print(f'b=\n{b}')
+print(f'R=\n{R}')
+print(f'Ft=\n{Ft}')
+print(f'Ftsum=\n{Ftsum}')
+print(f'Pint=\n{Pint}')
+print(f'pselect=\n{pselect}')
+print(f'Ftmean=\n{Ftmean}')
 
 print(f'score={score}')
 for i in range(Z):
@@ -65,13 +73,5 @@ for i in range(Z):
     print(f'score={score}')
     print()
 
-print(f'Y={Y}')
-print(f'c={c}')
-print(f'b={b}')
-print(f'R={R}')
-print(f'Ft={Ft}')
-print(f'Ftsum={Ftsum}')
-print(f'pselect={pselect}')
-print(f'Ftmean={Ftmean}')
-print(f'Pint={Pint}')
+print(f'Pint=\n{Pint}')
 
